@@ -1,0 +1,49 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+
+    <div class="row justify-content-center">
+        <div class="col-4 mt-5">
+            <form action="{{ path('indexfct') }}" method="get">
+                <input type="text" name="a" placeholder="Alumno...">
+                <input type="text" name="p" placeholder="Profesor...">
+                <input type="text" name="c" placeholder="Ciclo...">
+                <button type="submit" class="btn btn-secondary">Buscar</button>
+            </form>
+        </div>
+        <div class="col-10 mt-5 mb-1">
+            {% for label,messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">{{ message }}</div>
+                {% endfor %}
+            {% endfor %}
+
+            <h2 class="mb-3">Listado de FCT</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Año</th>
+                    <th>Periodo</th>
+                    <th>Alumno</th>
+                    <th>Profesor</th>
+                    <th>Ciclo</th>
+                    <th>Opciones</th>
+                </tr>
+                {% for fct0 in fct %}
+                    <tr>
+                        <td>{{  fct0.anyo}}</td>
+                        <td>{{  fct0.periodo }}</td>
+                        <td>{{  fct0.alumno.nombre}} {{  fct0.alumno.apellido1}} {{  fct0.alumno.apellido2}}</td>
+                        <td>{{  fct0.profesor.nombre }} {{  fct0.profesor.apellido1}} {{  fct0.profesor.apellido2}}</td>
+                        <td>{{ fct0.codCiclo }}</td>
+                        <td>
+                            <a role="button" href="{{ path("app_fct_eliminafct",{"id":fct0.id}) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <a role="button" href="{{ path("app_fct_editarfct",{"id":fct0.id}) }}" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <nav>
+                {{ pagerfanta(fct, 'twitter_bootstrap4_translated', {'omitFirstPage': true, 'pageParameter': '[pag]', 'css_container_class': 'pagination justify-content-center'}) }}
+            </nav>
+        </div>
+    </div>
+{% endblock %}

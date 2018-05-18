@@ -1,0 +1,31 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row justify-content-center mt-5 mb-5 ">
+
+        <div class="col-3">
+            <h2>Datos informativos </h2>
+            <hr class="my-3">
+            <h4>Nombre: <small class="text-muted">{{ empresa.nombre }} </small></h4>
+            <h4>Teléfono:<small class="text-muted">{{ empresa.tlfFijo }}</small></h4>
+            <h4>CIF: <small class="text-muted">{{ empresa.cif }}</small></h4>
+
+        </div>
+
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-3 ">
+            <h2>Datos de contacto</h2>
+            <hr class="my-6">
+            <h4>Tutor: <small class="text-muted">{{ empresa.nombreTutor}}</small></h4>
+            <h4>E-mail: <small class="text-muted">{{ empresa.email }}</small></h4>
+            <h4>Tlf. móvil: <small class="text-muted">{{ empresa.tlfMovil }}</small></h4>
+        </div>
+        <div class="col-3">
+            <h2>Ubicación</h2>
+            <hr class="my-6">
+            <h4>Dirección: <small class="text-muted">{{ empresa.direccion }}</small></h4>
+            <h4>Código Postal: <small class="text-muted">{{ empresa.codigopostal}}</small></h4>
+            <h4>Localidad: <small class="text-muted">{{ empresa.poblacion }}, ( {{ empresa.provincia }} )</small></h4>
+        </div>
+    </div>
+{% endblock %}

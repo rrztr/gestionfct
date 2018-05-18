@@ -1,0 +1,16 @@
+{% extends "@App/layout.html.twig" %}
+    {% block content %}
+<div class="row justify-content-center mt-5 mb-5">
+    <a class="col-3 bg-warning p-5 mr-5  border rounded" id="btn_add_profesores"  href="{{ path("app_profesores_registroprofesores") }}" style="cursor: pointer">
+        <div class="text-center text-dark">
+            <img src="https://png.icons8.com/dusk/64/000000/add-user-group-man-man.png">
+            <h2> Añadir profesor</h2>
+        </div>
+    </a>
+    <a class="col-3 bg-warning p-5 border rounded" id="btn_ver_profesores" href="{{ path("app_profesores_index") }}" style="cursor: pointer">
+        <div class="text-center text-dark">
+            <img src="https://png.icons8.com/dusk/64/000000/test-partial-passed.png">
+            <h2> Ver listado profesores</h2>
+        </div>
+    </a>
+    {% endblock %}

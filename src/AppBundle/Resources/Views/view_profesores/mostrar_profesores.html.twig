@@ -1,0 +1,40 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row justify-content-center mt-5 mb-5 ">
+        <div class="col-3">
+            {% if profesor.fotografia is not null %}
+                <img src="{{ asset('images/fotos_profesores/' ~ profesor.fotografia) }}" height="150" width="150">
+            {% else %}
+                <img src="{{ asset('user.png') }}" height="150" width="150">
+            {% endif %}
+        </div>
+        <div class="col-3">
+            <h2>Datos personales</h2>
+            <hr class="my-3">
+            <h4>Nombre: <small class="text-muted">{{ profesor.nombre }}</small></h4>
+            <h4>Apellidos: <small class="text-muted">{{ profesor.apellido1 }} {{ profesor.apellido2 }}</small></h4>
+            <h4>Ciclo/s: <small class="text-muted">
+                    {% for ciclo in profesor.ciclos %}
+                        {{ ciclo.codigo }}
+                    {% endfor %}
+                </small>
+            </h4>
+        </div>
+
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-3 ">
+            <h2>Datos de contacto</h2>
+            <hr class="my-6">
+            <h4>E-mail: <small class="text-muted">{{ profesor.email }}</small></h4>
+            <h4>Tlf. fijo: <small class="text-muted">{{ profesor.tlfFijo }}</small></h4>
+            <h4>Tlf. móvil: <small class="text-muted">{{ profesor.tlfMovil }}</small></h4>
+        </div>
+        <div class="col-3">
+            <h2>Datos de la aplicación</h2>
+            <hr class="my-6">
+            <h4>Nombre de usuario: <small class="text-muted">{{ profesor.username }}</small></h4>
+            <h4>Rol: <small class="text-muted">{{ profesor.rol }}</small></h4>
+        </div>
+    </div>
+{% endblock %}

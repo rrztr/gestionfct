@@ -1,0 +1,38 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-10 mt-5 mb-1">
+            {% for label,messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">{{ message }}</div>
+                {% endfor %}
+            {% endfor %}
+
+            <h2 class="mb-3">Listado de ciclos</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Grado</th>
+                    <th>Horas FCT</th>
+                    <th>Opciones</th>
+                </tr>
+                {% for ciclo in ciclos%}
+                    <tr>
+                        <td>{{  ciclo.codigo }}</td>
+                        <td>{{  ciclo.nombre }}</td>
+                        <td>{{  ciclo.grado }}</td>
+                        <td>{{  ciclo.horasfct }}</td>
+                        <td>
+                            <a role="button" href="{{ path("app_ciclos_eliminaciclos",{"id":ciclo.id }) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <a role="button" href="{{ path("app_ciclos_editarciclos",{"id":ciclo.id }) }}" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <nav>
+                {{ pagerfanta(ciclos, 'twitter_bootstrap4_translated', {'omitFirstPage': true, 'pageParameter': '[pag]', 'css_container_class': 'pagination justify-content-center'}) }}
+            </nav>
+        </div>
+    </div>
+{% endblock %}

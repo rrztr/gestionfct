@@ -1,0 +1,43 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row justify-content-center mt-5 ">
+        <div class="col-6 text-right">
+            <a href="{{ path("pdf_alumno",{"id":alumno.id}) }}"><img src="https://png.icons8.com/color/64/000000/pdf.png"></a>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5 mb-5 ">
+        <div class="col-3">
+            {% if alumno.fotografia is not null %}
+                <img src="{{ asset('images/fotos_alumnos/' ~ alumno.fotografia) }}" height="150" width="150">
+            {% else %}
+                <img src="{{ asset('user.png') }}" height="150" width="150">
+            {% endif %}
+        </div>
+            <div class="col-3">
+                <h2>Datos personales</h2>
+                <hr class="my-3">
+                <h4>Nombre: <small class="text-muted">{{ alumno.nombre }}</small></h4>
+                <h4>Apellidos: <small class="text-muted">{{ alumno.apellido1 }} {{ alumno.apellido2 }}</small></h4>
+                <h4>DNI: <small class="text-muted">{{ alumno.nif }}</small></h4>
+                <h4>Ciclo: <small class="text-muted">{{ alumno.ciclo.nombre }} ({{ alumno.ciclo.codigo }}) </small></h4>
+            </div>
+
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-3 ">
+            <h2>Datos de contacto</h2>
+            <hr class="my-6">
+            <h4>E-mail: <small class="text-muted">{{ alumno.email }}</small></h4>
+            <h4>Tlf. fijo: <small class="text-muted">{{ alumno.tlfFijo }}</small></h4>
+            <h4>Tlf. móvil: <small class="text-muted">{{ alumno.tlfMovil }}</small></h4>
+
+        </div>
+    <div class="col-3">
+        <h2>&nbsp;</h2>
+        <hr class="my-6">
+        <h4>Dirección: <small class="text-muted">{{ alumno.direccion }}</small></h4>
+        <h4>Código Postal: <small class="text-muted">{{ alumno.codigopostal }}</small></h4>
+        <h4>Localidad: <small class="text-muted">{{ alumno.poblacion }}, ( {{ alumno.provincia }} )</small></h4>
+    </div>
+    </div>
+{% endblock %}

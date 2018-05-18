@@ -1,0 +1,56 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-4 mt-5">
+            <form action="{{ path('app_profesores_index') }}" method="get">
+                <input type="text" name="q" placeholder="Nombre...">
+                <select name="r" class="select ">
+                    <option value="" selected="selected">Rol...</option>
+                    <option value="profesor">Profesor</option>
+                    <option value="director">Director</option>
+                </select>
+                <button type="submit" class="btn btn-secondary">Buscar</button>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+
+
+        <div class="col-10 mt-5 mb-1">
+            {% for label,messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">{{ message }}</div>
+                {% endfor %}
+            {% endfor %}
+            <h2 class="mb-3">Listado de profesores</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Nombre</th>
+                    <th>1er apellido</th>
+                    <th>2do apellido</th>
+                    <th>E-mail</th>
+                    <th>Rol</th>
+                    <th>Móvil</th>
+                    <th>Opciones</th>
+                </tr>
+                {% for profesor in profesores %}
+                    <tr>
+                        <td>{{  profesor.nombre }}</td>
+                        <td>{{  profesor.apellido1 }}</td>
+                        <td>{{  profesor.apellido2 }}</td>
+                        <td>{{  profesor.email }}</td>
+                        <td>{{  profesor.rol }}</td>
+                        <td>{{  profesor.tlfMovil }}</td>
+                        <td> <a role="button" href="{{ path("app_profesores_eliminaprofesores",{"id":profesor.id}) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <a role="button" href="{{ path("app_profesores_muestraprofesores",{"id":profesor.id}) }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
+                            <a role="button" href="{{ path("app_profesores_editarprofesores",{"id":profesor.id}) }}" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <nav>
+                {{ pagerfanta(profesores, 'twitter_bootstrap4_translated', {'omitFirstPage': true, 'pageParameter': '[pag]', 'css_container_class': 'pagination justify-content-center'}) }}
+            </nav>
+        </div>
+    </div>
+{% endblock %}

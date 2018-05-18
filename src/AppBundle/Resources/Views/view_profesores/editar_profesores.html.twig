@@ -1,0 +1,24 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="card card-outline-primary">
+        <div class="card-header">
+            <h3 class="mb-0">Datos del alumno</h3>
+        </div>
+        <div style="margin: 0 20%;">
+            <div class="card-body">
+                {%  if app.session.flashbag().get('status') is defined %}
+                    {% for type,messages in app.session.flashbag.all() %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger">{{ message }}</div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+                {{ form(form, {'attr': {'novalidate': 'novalidate','action':'','method':'POST'} } ) }}
+                {{ form_errors(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    <!--/col-->
+{% endblock %}

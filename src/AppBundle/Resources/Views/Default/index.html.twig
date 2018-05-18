@@ -1,0 +1,39 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row justify-content-center mt-5 mb-5">
+        <a class="col-3 mr-5 bg-warning p-5 border rounded" id="btn_profesores" href="{{ path("index_profesores") }}" style="cursor: pointer">
+            <div class="text-center text-dark" >
+                <img src="https://png.icons8.com/color/64/000000/classroom.png">
+                <h2>Profesores</h2>
+            </div>
+        </a>
+
+        <a class="col-3 mr-5 bg-warning p-5 border rounded" id="btn_alumnos" href="{{ path("index_alumnos") }}" style="cursor: pointer">
+            <div class="text-center text-dark">
+                <img src="https://png.icons8.com/color/64/000000/student-male.png">
+                <h2>Alumnos</h2>
+            </div>
+        </a>
+
+        <a class="col-3 bg-warning p-5 border rounded" id="btn_empresas" href="{{ path("index_empresas") }}" style="cursor: pointer">
+                <div class="text-center text-dark">
+                    <img src="https://png.icons8.com/color/64/000000/businessman.png">
+                    <h2>Empresas</h2>
+                </div>
+        </a>
+    </div>
+    <div class="row justify-content-center mb-5">
+        <a class="col-3 mr-5 bg-warning p-5 border rounded" id="btn_ciclos"  href="{{ path("index_ciclos") }}" style="cursor: pointer">
+                <div class="text-center text-dark">
+                    <img src="https://png.icons8.com/color/64/000000/graduation-cap.png">
+                    <h2>Ciclos</h2>
+                </div>
+        </a>
+        <a class="col-3 bg-warning p-5 border rounded" id="btn_fct" style="cursor: pointer" href="{{ path("index_fct") }}">
+                <div class="text-center text-dark">
+                    <img src="https://png.icons8.com/color/64/000000/coworking.png">
+                    <h2>FCT</h2>
+                </div>
+        </a>
+    </div>
+{% endblock %}

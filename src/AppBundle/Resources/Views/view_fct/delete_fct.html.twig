@@ -1,0 +1,19 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row mt-5 text-center" >
+        <div class="card col-5 m-auto" style="width: 20rem;">
+            <img class="card-img-top" >
+            <div class="card-block mb-2">
+                <h4 class="card-title">Eliminar FCT</h4>
+                <p class="card-text">¿Está seguro que desea eliminar la siguiente FCT ?</p>
+                <p> Alumno: {{ fct.alumno.nombre }} {{ fct.alumno.apellido1 }} {{ fct.alumno.apellido2 }}</p>
+                <p>Empresa: {{ fct.empresas.nombre }}</p>
+                <p>Profesor: {{ fct.profesor.nombre }}</p>
+                <form action="{{ path('app_fct_eliminafct', {'id':fct.id}) }}" method="post">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a href="{{ path('app_alumnos_index') }}" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock  %}

@@ -1,0 +1,51 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-5 mt-5">
+            <form action="{{ path('app_empresas_index') }}" method="get">
+                <input type="text" name="q" placeholder="Nombre...">
+                <input type="text" name="t" placeholder="Tutor...">
+                <button type="submit" class="btn btn-secondary">Buscar</button>
+            </form>
+        </div>
+        <div class="col-10 mt-5 mb-1">
+            {% for label,messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">{{ message }}</div>
+                {% endfor %}
+            {% endfor %}
+
+            <h2 class="mb-3">Listado de empresas</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>CIF</th>
+                    <th>Nombre empresa</th>
+                    <th>Nombre tutor</th>
+                    <th>E-mail</th>
+                    <th>Dirección</th>
+                    <th>Provincia</th>
+                    <th>Población</th>
+                    <th>Opciones</th>
+                </tr>
+                {% for empresa in empresas %}
+                    <tr>
+                        <td>{{  empresa.cif }}</td>
+                        <td>{{  empresa.nombre }}</td>
+                        <td>{{  empresa.nombreTutor }}</td>
+                        <td>{{  empresa.email }}</td>
+                        <td>{{  empresa.direccion }}</td>
+                        <td>{{  empresa.provincia }}</td>
+                        <td>{{  empresa.poblacion }}</td>
+                        <td> <a role="button" href="{{ path("app_empresas_eliminaempresas",{"id":empresa.id}) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <a role="button" href="{{ path("app_empresas_muestraempresas",{"id":empresa.id}) }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
+                            <a role="button" href="{{ path("app_empresas_editarempresas",{"id":empresa.id}) }}" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <nav>
+                {{ pagerfanta(empresas, 'twitter_bootstrap4_translated', {'omitFirstPage': true, 'pageParameter': '[pag]', 'css_container_class': 'pagination justify-content-center'}) }}
+            </nav>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "@App/layout.html.twig" %}
+{% block content %}
+    <div class="row mt-5 text-center" >
+        <div class="card col-5 m-auto" style="width: 20rem;">
+            <img class="card-img-top" >
+            <div class="card-block mb-2">
+                <h4 class="card-title">Eliminar ciclo</h4>
+                <p class="card-text">¿Está seguro que desea eliminar  {{ ciclo.nombre }}?</p>
+                <form action="{{ path('app_ciclos_eliminaciclos', {'id':ciclo.id}) }}" method="post">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a href="{{ path('app_ciclos_index') }}" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock  %}

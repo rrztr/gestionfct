@@ -1,0 +1,19 @@
+{% extends "@App/layout.html.twig" %}
+    {% block content %}
+        <div class="row justify-content-center mt-5 mb-5">
+        <a class="col-3 bg-warning p-5 mr-5 border rounded" id="btn_add_empresas" href="{{ path("app_fct_registrofct") }}" style="cursor: pointer">
+            <div class="text-center text-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     width="64" height="64"
+                     viewBox="0 0 252 252"
+                     style="fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,252v-252h252v252z" fill="none"></path><g><g id="surface1"><path d="M126,194.25l-26.25,-31.5v-31.5h52.5v31.5z" fill="#ff9800"></path><path d="M183.75,99.75c0,5.80371 -4.69629,10.5 -10.5,10.5c-5.80371,0 -10.5,-4.69629 -10.5,-10.5c0,-5.80371 4.69629,-10.5 10.5,-10.5c5.80371,0 10.5,4.69629 10.5,10.5z" fill="#ffa726"></path><path d="M89.25,99.75c0,5.80371 -4.69629,10.5 -10.5,10.5c-5.80371,0 -10.5,-4.69629 -10.5,-10.5c0,-5.80371 4.69629,-10.5 10.5,-10.5c5.80371,0 10.5,4.69629 10.5,10.5z" fill="#ffa726"></path><path d="M173.25,68.25c0,-39.9082 -94.5,-26.25 -94.5,0c0,5.78321 0,30.9668 0,36.75c0,26.25 21,47.25 47.25,47.25c26.25,0 47.25,-21 47.25,-47.25c0,-5.7832 0,-30.96679 0,-36.75z" fill="#ffb74d"></path><path d="M126,21c-32.0332,0 -52.5,25.7168 -52.5,57.75c0,4.2041 0,12.0791 0,12.0791l10.5,8.9209v-26.25l63,-21l21,21v26.25l10.5,-8.9209c0,0 0,-7.875 0,-12.0791c0,-21 -5.25,-42 -31.5,-47.25l-5.25,-10.5z" fill="#424242"></path><path d="M152.25,99.75c0,2.8916 -2.3584,5.25 -5.25,5.25c-2.8916,0 -5.25,-2.3584 -5.25,-5.25c0,-2.8916 2.3584,-5.25 5.25,-5.25c2.8916,0 5.25,2.3584 5.25,5.25z" fill="#784719"></path><path d="M110.25,99.75c0,2.8916 -2.3584,5.25 -5.25,5.25c-2.8916,0 -5.25,-2.3584 -5.25,-5.25c0,-2.8916 2.3584,-5.25 5.25,-5.25c2.8916,0 5.25,2.3584 5.25,5.25z" fill="#784719"></path><path d="M126,225.75l-26.25,-63l26.25,5.25l26.25,-5.25z" fill="#ffffff"></path><path d="M120.75,183.75l-3.6709,23.625l8.9209,21l8.9209,-21l-3.6709,-23.625l5.25,-5.25l-10.5,-10.5l-10.5,10.5z" fill="#d32f2f"></path><path d="M152.25,162.75l-26.25,63l-26.25,-63c0,0 -57.75,10.5 -57.75,68.25h168c0,-57.75 -57.75,-68.25 -57.75,-68.25z" fill="#546e7a"></path></g></g><g fill="#7cb342"><g id="IOS_copy"><path d="M252,183.75h-36.75v-36.75h-31.5v36.75h-36.75v31.5h36.75v36.75h31.5v-36.75h36.75z"></path></g></g></g></svg>
+                <h2>Añadir FCT</h2>
+            </div>
+        </a>
+        <a class="col-3 bg-warning p-5 border rounded" id="btn_ver_empresas" href="{{ path("indexfct") }}" style="cursor: pointer">
+            <div class="text-center text-dark">
+                <img src="https://png.icons8.com/dusk/64/000000/inspection.png">
+                <h2>Ver listado FCTs</h2>
+            </div>
+        </a>
+    {% endblock %}
